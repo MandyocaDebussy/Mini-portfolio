@@ -1,0 +1,125 @@
+@charset "UTF-8"
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+  body {
+    background: url("img/5148675.jpg");
+    background-size: cover;
+    display: grid;
+    font-family:'Koulen',cursive;
+    text-align: center;
+    font-weight:bold;
+    letter-spacing: 2px;
+    min-height: 100vh;
+    place-items: center;
+    background-attachment: fixed;
+  }
+
+.below{
+background-color: #000000e1;
+margin-bottom: 10px;
+width: 350px;
+height: 2px;
+border-radius: 5px;
+}
+
+.introduction{
+  font-size: 14px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+  
+}
+
+
+li,a{
+  display: inline-block;
+  margin-right: 20px;
+  position:relative;
+}
+
+
+.holder {
+  position:fixed;
+}
+
+  .holder::before,.holder::after {
+    animation: orbit 4s linear infinite;
+    border-radius: 50%;
+    box-shadow:0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    content:"";
+    height:150px;
+    position: absolute;
+    width:150px;
+  }
+  .holder:before {
+    background: #ffe897;
+    background-image:linear-gradient(to right, #c714c7 , #9696e0) ;
+  }
+  .holder::after {
+    animation-delay: -2.5s;
+    background: #e0e793;
+    background-image:linear-gradient(to right, #4d164d , #1c1cda) ;
+    box-shadow: 2px 3px 3px 1px #c714c7;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  
+}
+.card {
+  
+  font-size: 2rem;
+  height: 450px;
+  position: relative;
+  width: 350px;
+  padding: 40px;
+  background-color: rgba(236, 231, 231, 0.322);
+  border-radius: 16px;
+  box-shadow: 0 6px 30px 3px blueviolet;
+  backdrop-filter: blur(7.6px);/*glass effect*/
+  animation: flicker 1.5s infinite
+  alternate;
+}
+
+img{
+  border-radius: 50%;
+}
+
+/*flashes lights*/
+
+@keyframes flicker {
+    
+    1%, 22%, 25%, 53%, 57%, 100% {
+  
+        box-shadow:
+        0 0 11px #fff,
+        0 0 19px #ffffffd3,
+        0 0 40px #0fa,
+        0 0 80px #0fa,
+        0 0 90px #8c00ff,
+        0 0 100px #0fa,
+        0 0 150px #ff00ff;
+    
+    }
+    
+    20%, 24%, 55% {        
+        box-shadow: none;
+    }    
+  }
+  
+  
+/*circle rotation*/
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(180px) rotate(0deg);
+    position:fixed;
+  }
+  to {
+    transform: rotate(360deg) translateX(180px) rotate(-360deg);
+    position:fixed;
+  }
+}
